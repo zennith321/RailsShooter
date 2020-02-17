@@ -386,12 +386,12 @@ PrefabInstance:
     - target: {fileID: 7971398418951343499, guid: 89feb8bf589f1d349b2f40205a0ad96b,
         type: 3}
       propertyPath: m_HeightmapPixelError
-      value: 2
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7971398418951343499, guid: 89feb8bf589f1d349b2f40205a0ad96b,
         type: 3}
       propertyPath: m_SplatMapDistance
-      value: 1000
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 7971398418951343501, guid: 89feb8bf589f1d349b2f40205a0ad96b,
         type: 3}
