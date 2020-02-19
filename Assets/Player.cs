@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] float positionPitchFactor = -1f;
     [SerializeField] float controlPitchFactor = -30f;
     [SerializeField] float positionYawFactor = 1f;
+    [SerializeField] float controlYawFactor = 15f;
     [SerializeField] float controlRollFactor = -25f;
 
     float xThrow;
@@ -42,16 +43,13 @@ public class Player : MonoBehaviour
         float rawNewXPos = transform.localPosition.x + xOffset;
         float newXPos = Mathf.Clamp(rawNewXPos, minXRange, maxXRange);
 
-        transform.localPosition = new Vector3(newXPos, transform.localPosition.y, transform.localPosition.z);
-
-
         yThrow = CrossPlatformInputManager.GetAxis("Vertical");
         float yOffset = yThrow * ySpeed * Time.deltaTime;
 
         float rawNewYPos = transform.localPosition.y + yOffset;
         float newYPos = Mathf.Clamp(rawNewYPos, minYRange, maxYRange);
 
-        transform.localPosition = new Vector3(transform.localPosition.x, newYPos, transform.localPosition.z);
+        transform.localPosition = new Vector3(newXPos, newYPos, transform.localPosition.z);
     }
     
     private void ProcessRotation()
@@ -60,7 +58,9 @@ public class Player : MonoBehaviour
         float pitchDueToControlThrow = yThrow * controlPitchFactor;
         float pitch =  pitchDueToControlThrow + pitchDueToPosition;
 
-        float yaw = transform.localPosition.x + positionYawFactor;
+        float yawDueToPosition = transform.localPosition.x * positionYawFactor;
+        float yawDueToControlThrow = xThrow * controlYawFactor;
+        float yaw = yawDueToControlThrow + yawDueToPosition;
 
         float roll = xThrow * controlRollFactor;
 
