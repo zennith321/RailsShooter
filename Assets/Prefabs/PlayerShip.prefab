@@ -413,7 +413,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4578466178321354}
+  - component: {fileID: 3071025383477405953}
+  - component: {fileID: 2997622530335402850}
   - component: {fileID: 688501864588803843}
+  - component: {fileID: 4140123529765680052}
   m_Layer: 0
   m_Name: SpaceShip
   m_TagString: Untagged
@@ -465,6 +468,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3071025383477405953
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093813972544782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12, y: 4, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2997622530335402850
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093813972544782}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &688501864588803843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,7 +518,20 @@ MonoBehaviour:
   positionPitchFactor: -0.8
   controlPitchFactor: -30
   positionYawFactor: 0
+  controlYawFactor: 15
   controlRollFactor: -25
+--- !u!114 &4140123529765680052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093813972544782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a47ebea7f88c54fbc9790419d8b0c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1126343116947196
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    [Header("Player Speed")]
     [Tooltip("In ms^-1")] [SerializeField] float xSpeed = 20f;
     [Tooltip("In ms^-1")] [SerializeField] float ySpeed = 20f;
+    [Header("Screen Restrictions")]
     [SerializeField] float minXRange = -20f;
     [SerializeField] float maxXRange = 20f;
     [SerializeField] float minYRange = -14f;
     [SerializeField] float maxYRange = 14f;
-
+    [Header("Control Throw")]
     [SerializeField] float positionPitchFactor = -1f;
     [SerializeField] float controlPitchFactor = -30f;
     [SerializeField] float positionYawFactor = 1f;
@@ -20,19 +22,21 @@ public class Player : MonoBehaviour
 
     float xThrow;
     float yThrow;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    bool isControlEnabled = true;
 
     // Update is called once per frame
     void Update()
     {
-        ProcessTranslation();
-        ProcessRotation();
+        if (isControlEnabled)
+        {
+            ProcessTranslation();
+            ProcessRotation();
+        }
+    }
+
+    private void OnPlayerDeath()    // called by string reference
+    {
+        isControlEnabled = false;
     }
 
     private void ProcessTranslation()
