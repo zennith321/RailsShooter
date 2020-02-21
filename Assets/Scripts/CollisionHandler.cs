@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
-
+    [SerializeField] float loadLevelDelay = 1f;
     void OnTriggerEnter(Collider other) 
     {
         StartDeathSequence();
@@ -12,7 +12,7 @@ public class CollisionHandler : MonoBehaviour
 
     private void StartDeathSequence()
     {
-        print("CollisionHandler says player is dying");
         SendMessage("OnPlayerDeath");
+        //gameObject.SetActive(true);
     }
 }
