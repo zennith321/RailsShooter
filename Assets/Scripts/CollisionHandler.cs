@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
-    [SerializeField] float loadLevelDelay = 1f;
+    [Tooltip("In Seconds")][SerializeField] float loadLevelDelay = 1f;
+    [Tooltip("FX prefab on player")][SerializeField] GameObject deathFX;
+    public Rigidbody rb = null;
     void OnTriggerEnter(Collider other) 
     {
         StartDeathSequence();
@@ -13,6 +15,14 @@ public class CollisionHandler : MonoBehaviour
     private void StartDeathSequence()
     {
         SendMessage("OnPlayerDeath");
-        //gameObject.SetActive(true);
+        deathFX.SetActive(true);
+        Invoke("StartGameOver", loadLevelDelay);
+        rb.isKinematic = false;
+        rb.detectCollisions = true;
+    }
+
+    private void StartGameOver() // string reference
+    {
+        SceneManager.LoadScene(1);
     }
 }
