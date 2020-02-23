@@ -7,7 +7,7 @@ public class SelfDestructor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 5f); // todo allow customization
+        Destroy(gameObject, 5f); // TODO allow customization
     }
 
     // Update is called once per frame
