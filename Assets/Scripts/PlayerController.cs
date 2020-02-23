@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         isControlEnabled = false;
     }
 
-    private void ProcessTranslation()
+    private void ProcessTranslation() // todo refactor to make neater
     {
         xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
         float xOffset = xThrow * xSpeed * Time.deltaTime;
